@@ -16,9 +16,10 @@ db.dropDatabase();
 // House Targaryen, motto "Fire and Blood"
 
 // your code begins here
-
-
-
+use houses;
+db.houses.insert({name: 'Arryn', motto: 'As High as Honor'});
+db.houses.insert({name: 'Stark', motto: 'Winter is Coming'});
+db.houses.insert({name: 'Targaryen', motto: 'Fire and Blood'});
 
 
 // your code ends here
@@ -37,7 +38,27 @@ db.dropDatabase();
 
 // your code begins here
 
+db.houses.update({
+  name: 'Stark'
+}, {
+  $push: {people: {
+    name: 'Ned Stark'
+  }}
+});
 
+db.houses.update({
+  name: 'Stark'
+}, {
+  $addToSet: { people: {$each: [{name: 'Arya Stark'}, {name: 'Sansa Stark'}]}}
+});
+
+db.houses.update({
+  name: 'Targaryen'
+}, {
+  $push: {people: {
+    name: 'Viserys Targaryen'
+  }}
+});
 
 
 
@@ -49,7 +70,9 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.houses.update({
+  name: 'Arryn'
+}, { $unset: { motto: true }});
 
 
 
@@ -62,7 +85,7 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.houses.remove({name: 'Stark'});
 
 
 
