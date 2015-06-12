@@ -18,6 +18,22 @@ db.dropDatabase();
 // your code begins here
 
 
+// for terminal "use weseros"
+
+db.westeros.insert({
+    name : 'Arryn',
+    motto : 'As High as Honor',
+});
+
+db.westeros.insert({
+    name : 'Stark',
+    motto : 'Winter is Coming',
+});
+
+db.westeros.insert({
+    name : 'Targaryen',
+    motto : 'Fire and Blood',
+});
 
 
 
@@ -36,12 +52,46 @@ db.dropDatabase();
 // Jon Arryn
 
 // your code begins here
+db.westeros.update({
+    name: 'Stark'
+}, {
+    $push: { people: 'Ned Stark' }
+});
 
+db.westeros.update({
+    name: 'Stark'
+}, {
+    $push: { people: 'Arya Stark' }
+});
 
+db.westeros.update({
+    name: 'Stark'
+}, {
+    $push: { people: 'Sansa Stark' }
+});
 
+db.westeros.update({
+    name: 'Targaryen'
+}, {
+    $push: { people: 'Viserys Targaryen' }
+});
 
+db.westeros.update({
+    name: 'Targaryen'
+}, {
+    $push: { people: 'Daenerys Targaryen' }
+});
+
+db.westeros.update({
+    name: 'Jon Arryn'
+}, {
+    $push: { people: 'Jon Arryn' }
+});
 
 // your code ends here
+
+
+
 
 // Question 3
 //
@@ -49,11 +99,15 @@ db.dropDatabase();
 
 // your code begins here
 
-
-
-
+db.westeros.update({
+    name: "Arryn"
+}, {
+  $unset: { motto: 1 }
+});
 
 // your code ends here
+
+
 
 // Question 4
 //
@@ -62,7 +116,7 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.westeros.remove({ name: "Stark"});
 
 
 
