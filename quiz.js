@@ -1,3 +1,4 @@
+require 'Mongo';
 // Quiz: An Introduction to MongoDB
 
 // do not change anything between here and question 1
@@ -17,8 +18,23 @@ db.dropDatabase();
 
 // your code begins here
 
+db.createCollection("houses");
+
+db.houses.insert({
+  name: 'House Arryn',
+  motto: 'As High as Honor',
+});
 
 
+db.houses.insert({
+  name: 'House Stark',
+  motto: 'Winter is Coming',
+});
+
+db.houses.insert({
+  name: 'House Targaryen',
+  motto: 'Fire and Blood',
+});
 
 
 // your code ends here
@@ -37,6 +53,61 @@ db.dropDatabase();
 
 // your code begins here
 
+db.houses.update({
+  name: 'House Stark'
+}, {
+  $push: {
+    members: {
+      name: 'Ned Stark'
+    }
+  }
+});
+db.houses.update({
+  name: 'House Stark'
+}, {
+  $push: {
+    members: {
+      name: 'Arya Stark'
+    }
+  }
+});
+db.houses.update({
+  name: 'House Stark'
+}, {
+  $push: {
+    members: {
+      name: 'Sansa Stark'
+    }
+  }
+});
+db.houses.update({
+  name: 'House Targaryen'
+}, {
+  $push: {
+    members: {
+      name: 'Viserys Targaryen'
+    }
+  }
+});
+db.houses.update({
+  name: 'House Targaryen'
+}, {
+  $push: {
+    members: {
+      name: 'Daenerys Targaryen'
+    }
+  }
+});
+db.houses.update({
+  name: 'House Arryn'
+}, {
+  $push: {
+    members: {
+      name: 'Jon Arryn'
+    }
+  }
+});
+
 
 
 
@@ -48,7 +119,13 @@ db.dropDatabase();
 // House Arryn is not honorable!  Delete their motto.
 
 // your code begins here
-
+db.houses.update({
+  name: 'House Arryn'
+}, {
+  $unset: {
+    motto: ''
+  }
+});
 
 
 
@@ -62,7 +139,9 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.houses.remove({
+  name: 'House Stark'
+});
 
 
 
