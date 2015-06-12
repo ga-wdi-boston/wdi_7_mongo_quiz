@@ -17,6 +17,15 @@ db.dropDatabase();
 
 // your code begins here
 
+db.westeros.insert({houses:{name:"Arryn",
+motto:"As High as Honor"},
+{name:"Stark",
+motto:"Winter is Coming"},
+{name:"Targaryen",
+motto:"Fire and Blood"}
+});
+
+
 
 
 
@@ -37,9 +46,54 @@ db.dropDatabase();
 
 // your code begins here
 
+db.westeros.update('houses.name':"Stark"
+},
+{
+  $set: {
+    people: "Ned Stark"
+  }
+});
+
+db.westeros.update({'houses.name':"Stark"
+},
+{
+  $push: {
+    people: {"Arya Stark"}
+  }
+});
+
+db.westeros.update({'houses.name':"Stark"
+},
+{
+  $push: {
+    people: {"Sansa Stark"}
+  }
+});
+
+db.westeros.update({'houses.name':"Targaryen"
+},
+{
+  $set: {
+    people: {"Daenerys Targaryen"}
+  }
+});
 
 
+db.westeros.update({'houses.name':"Stark"
+},
+{
+  $push: {
+    people: "Viserys Targaryen"
+  }
+});
 
+db.westeros.update({'houses.name':"Arryn"
+},
+{
+  $set: {
+    people: "Jon Arryn"
+  }
+});
 
 // your code ends here
 
@@ -48,7 +102,13 @@ db.dropDatabase();
 // House Arryn is not honorable!  Delete their motto.
 
 // your code begins here
-
+db.westeros.update({'houses.name':"Arryn"
+},
+{
+  $unset: {
+    motto: true
+  }
+});
 
 
 
@@ -62,7 +122,7 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.westeros.remove({ 'houses.name': "Stark"});
 
 
 
