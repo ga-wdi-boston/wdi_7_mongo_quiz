@@ -50,10 +50,11 @@ motto : "Fire and Blood"
 
 // your code begins here
 
-db.houses.update({ name: 'Stark' }, { $push: { people: "Ned Stark", "Arya Stark", "Sansa Stark" }});
-
-db.houses.update({ name: 'Targaryen' }, { $push: { people: "Viserys Targaryen", "Daenerys Targaryen" }});
-
+db.houses.update({ name: 'Stark' }, { $push: { people: "Ned Stark" }});
+db.houses.update({ name: 'Stark' }, { $push: { people: "Arya Stark" }});
+db.houses.update({ name: 'Stark' }, { $push: { people: "Sansa Stark" }});
+db.houses.update({ name: 'Targaryen' }, { $push: { people: "Viserys Targaryen" }});
+db.houses.update({ name: 'Targaryen' }, { $push: { people: "Daenerys Targaryen" }});
 db.houses.update({ name: 'Arryn' }, { $push: { people: "Jon Arryn" }});
 
 // your code ends here
