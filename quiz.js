@@ -17,7 +17,22 @@ db.dropDatabase();
 
 // your code begins here
 
+  db.houses.insert({
+  name: 'House Arryn',
+  motto: 'As high as honor'
+  })
 
+
+  db.houses.insert({
+  house: 'Stark',
+  motto: 'Winter is coming'
+  })
+
+
+  db.houses.insert({
+  house: 'Targaryen',
+  motto: 'Fire and Blood'
+  })
 
 
 
@@ -27,7 +42,7 @@ db.dropDatabase();
 //
 // Using update and $push, add the following people to the
 // respective houses
-//
+
 // Ned Stark
 // Arya Stark
 // Sansa Stark
@@ -37,9 +52,17 @@ db.dropDatabase();
 
 // your code begins here
 
+db.houses.update(
+   { house: stark },
+   { $push: { respective houses: 'Ned Stark', 'Arya Stark','Sansa Stark' }}
 
+db.houses.update(
+   { house: Targaryen },
+   { $push: { respective houses: 'Viserys Targaryen', 'Daenerys Targaryen'}}
 
-
+db.houses.update(
+   { house: Arryn },
+   { $push: { respective houses: 'Jon Arryn'}}
 
 // your code ends here
 
@@ -49,8 +72,7 @@ db.dropDatabase();
 
 // your code begins here
 
-
-
+db.motto.remove( { motto : "As high as honor" }, House Arryn )
 
 
 // your code ends here
@@ -63,7 +85,6 @@ db.dropDatabase();
 // your code begins here
 
 
-
-
+db.houses.remove( { houses : "House Stark" })
 
 // your code ends here
