@@ -17,7 +17,18 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.houses.insert({
+  name: 'Arryn',
+  motto: 'As High as Honor'
+});
+db.houses.insert({
+  name: 'Stark',
+  motto: 'Winter is Coming'
+});
+db.houses.insert({
+  name: 'Targaryen',
+  motto: 'Fire and Blood'
+});
 
 
 
@@ -37,7 +48,35 @@ db.dropDatabase();
 
 // your code begins here
 
+//still only creating the last person in each list
+//I though useing multi: true would fix that but it hasn't
 
+db.houses.update({
+  name: /stark/i
+},{
+  $push: {people: {
+    name: 'Ned',
+    name: 'Arya',
+    name: 'Sansa'
+  }}
+},{multi: true});
+
+db.houses.update({
+  name: /targaryen/i
+},{
+  $push: {people: {
+    name: 'Viserys',
+    name: 'Daenerys'
+  }}
+},{multi: true});
+
+db.houses.update({
+  name: /Arryn/i
+},{
+  $push: {people: {
+    name: 'Jon'
+  }}
+});
 
 
 
@@ -49,7 +88,11 @@ db.dropDatabase();
 
 // your code begins here
 
-
+db.houses.update({
+  name: 'Arryn'
+},{
+  $unset:{motto: true}
+});
 
 
 
@@ -63,7 +106,9 @@ db.dropDatabase();
 // your code begins here
 
 
-
+db.houses.remove({
+  name: 'Stark'
+});
 
 
 // your code ends here
