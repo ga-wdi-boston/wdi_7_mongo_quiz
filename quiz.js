@@ -1,3 +1,4 @@
+require 'Mongo';
 // Quiz: An Introduction to MongoDB
 
 // do not change anything between here and question 1
@@ -138,7 +139,9 @@ db.houses.update({
 
 // your code begins here
 
-
+db.houses.remove({
+  name: 'House Stark'
+});
 
 
 
