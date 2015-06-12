@@ -118,7 +118,13 @@ db.houses.update({
 // House Arryn is not honorable!  Delete their motto.
 
 // your code begins here
-
+db.houses.update({
+  name: 'House Arryn'
+}, {
+  $unset: {
+    motto: ''
+  }
+});
 
 
 
